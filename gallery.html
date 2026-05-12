@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Blindscape | Gallery</title>
+  <meta name="description" content="Browse The Blindscape gallery for blinds, shutters, curtains and outdoor inspiration across Perth homes and entertaining spaces." />
+  <style>
+    :root {
+      --bg: #070707;
+      --bg-soft: #101010;
+      --panel: rgba(255,255,255,0.04);
+      --gold: #d9a441;
+      --gold-soft: #f0c56f;
+      --text: #f5f1e8;
+      --muted: #c8c0b1;
+      --line: rgba(217,164,65,0.2);
+      --cream: #f5f1e8;
+      --dark: #171411;
+      --shadow: 0 20px 50px rgba(0,0,0,0.35);
+      --radius: 24px;
+      --max: 1280px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(217,164,65,0.08), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(217,164,65,0.06), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      color: var(--gold-soft);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      color: var(--text);
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 760px;
+    }
+
+    .topbar {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar__inner {
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .topbar__cta {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .topbar__cta span:last-child {
+      color: var(--gold-soft);
+      font-weight: 700;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7,7,7,0.84);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      position: relative;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand__logo {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(217,164,65,0.35);
+      box-shadow: 0 0 0 4px rgba(217,164,65,0.06);
+      background: #000;
+      flex-shrink: 0;
+    }
+
+    .brand__text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand__name {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    .brand__tag {
+      font-size: 0.76rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.96rem;
+      flex-wrap: wrap;
+    }
+
+    .nav__links a {
+      position: relative;
+      color: rgba(245,241,232,0.9);
+    }
+
+    .nav__links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+      transition: width 0.25s ease;
+    }
+
+    .nav__links a:hover::after,
+    .nav__links a.active::after { width: 100%; }
+
+    .nav__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    .mobile-panel { display: none; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn--gold {
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      color: #111;
+      box-shadow: 0 12px 30px rgba(217,164,65,0.22);
+    }
+
+    .btn--ghost {
+      border-color: rgba(255,255,255,0.18);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .hero {
+      padding: 34px 0 24px;
+    }
+
+    .hero__shell {
+      min-height: 540px;
+      border-radius: 32px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(217,164,65,0.16);
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(90deg, rgba(7,7,7,0.86) 0%, rgba(7,7,7,0.62) 42%, rgba(7,7,7,0.18) 100%),
+        url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .hero__curve {
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      border: 1px solid rgba(217,164,65,0.2);
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      border-radius: 999px;
+      left: -120px;
+      top: 36px;
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 760px);
+      padding: 82px 56px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 0.96;
+      font-weight: 400;
+      margin: 0 0 18px;
+    }
+
+    .hero h1 em {
+      color: var(--gold-soft);
+      font-style: italic;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 1.05rem;
+      color: rgba(245,241,232,0.86);
+      margin-bottom: 28px;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .section {
+      padding: 20px 0 60px;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .filter-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(217,164,65,0.16);
+      background: rgba(217,164,65,0.08);
+      color: var(--gold-soft);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-card,
+    .feature-card,
+    .cta-card {
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-card {
+      overflow: hidden;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .gallery-card__body {
+      padding: 22px;
+    }
+
+    .gallery-card__body h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+    }
+
+    .gallery-card__body p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      padding: 26px;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .cta-card {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(245,241,232,0.98), rgba(241,236,229,0.94));
+      color: var(--dark);
+    }
+
+    .cta-copy {
+      padding: 40px;
+      background:
+        linear-gradient(90deg, rgba(245,241,232,0.94), rgba(245,241,232,0.80)),
+        url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .cta-copy .section-title,
+    .cta-copy .section-copy { color: var(--dark); }
+
+    .cta-panel {
+      padding: 34px;
+      display: grid;
+      align-content: center;
+      background: rgba(255,255,255,0.42);
+    }
+
+    .cta-panel ul {
+      margin: 0 0 20px;
+      padding-left: 18px;
+      color: #5a4e44;
+    }
+
+    footer {
+      padding: 0 0 26px;
+    }
+
+    .footer-card {
+      border-radius: 28px;
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr repeat(3, 1fr) 1.2fr;
+      gap: 24px;
+    }
+
+    .footer-column h4 {
+      margin: 0 0 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-soft);
+      font-size: 0.84rem;
+    }
+
+    .footer-column a,
+    .footer-column p {
+      display: block;
+      color: var(--muted);
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1180px) {
+      .gallery-grid,
+      .feature-grid,
+      .cta-card,
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 940px) {
+      .nav__links,
+      .nav__actions .btn { display: none; }
+      .mobile-toggle { display: inline-flex; }
+      .mobile-panel {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 16px;
+        right: 16px;
+        background: rgba(9,9,9,0.98);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        padding: 18px;
+        box-shadow: var(--shadow);
+      }
+      .mobile-panel.open { display: block; }
+      .mobile-panel nav {
+        display: grid;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+      .mobile-panel nav a {
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .mobile-panel .btn { width: 100%; }
+      .hero__content { padding: 68px 28px; }
+      .hero__shell { min-height: 500px; }
+      .intro { display: block; }
+    }
+
+    @media (max-width: 760px) {
+      .topbar__inner { flex-direction: column; justify-content: center; padding: 10px 0; }
+      .cta-copy,
+      .cta-panel,
+      .footer-card { padding-left: 24px; padding-right: 24px; }
+      .hero h1 { font-size: 2.8rem; }
+      .section-title { font-size: 2.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div>Browse project inspiration across blinds, shutters, curtains and outdoor spaces.</div>
+      <div class="topbar__cta">
+        <span>📞 <a href="tel:+61415882099">+61 415 882 099</a></span>
+        <span><a href="contact.html">Book your free measure & quote</a></span>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="The Blindscape home">
+        <div class="brand__logo">
+          <img src="assets/logo-the-blindscape.png" alt="The Blindscape logo" onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=300&q=80';" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="brand__text">
+          <span class="brand__name">The Blindscape</span>
+          <span class="brand__tag">Blinds & Shutters</span>
+        </div>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="blinds.html">Blinds</a>
+        <a href="shutters.html">Shutters</a>
+        <a href="curtains.html">Curtains</a>
+        <a href="outdoor.html">Outdoor</a>
+        <a class="active" href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="btn btn--gold" href="contact.html">Free Measure & Quote</a>
+        <button class="mobile-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+      </div>
+
+      <div class="mobile-panel" id="mobileMenu">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="blinds.html">Blinds</a>
+          <a href="shutters.html">Shutters</a>
+          <a href="curtains.html">Curtains</a>
+          <a href="outdoor.html">Outdoor</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <a class="btn btn--gold" href="contact.html">Free Measure & Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero__shell">
+          <div class="hero__curve"></div>
+          <div class="hero__content">
+            <div class="eyebrow">The Blindscape Gallery</div>
+            <h1>Inspiration That Helps Clients <em>Picture the Finished Result</em></h1>
+            <p>
+              Gallery pages matter because people do not buy descriptions. They buy the feeling of how the finished room or outdoor area could look once it is done properly.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--gold" href="#projects">View Projects</a>
+              <a class="btn btn--ghost" href="contact.html">Book Free Measure & Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="intro">
+          <div>
+            <div class="eyebrow">Featured inspiration</div>
+            <h2 class="section-title">A Gallery That Sells the Result</h2>
+          </div>
+          <p class="section-copy">
+            Right now this uses high-end placeholder imagery, but later you should replace these with real project photos. That will make the site far more credible.
+          </p>
+        </div>
+
+        <div class="filter-bar">
+          <span class="filter-chip">All</span>
+          <span class="filter-chip">Blinds</span>
+          <span class="filter-chip">Shutters</span>
+          <span class="filter-chip">Curtains</span>
+          <span class="filter-chip">Outdoor</span>
+          <span class="filter-chip">Living Spaces</span>
+          <span class="filter-chip">Bedrooms</span>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Modern living room with roller blind inspiration" />
+            <div class="gallery-card__body">
+              <h3>Modern Living Room Blinds</h3>
+              <p>Clean-lined roller blind inspiration for a refined, minimal interior feel.</p>
+              <div class="tag-row">
+                <span class="tag">Blinds</span>
+                <span class="tag">Living Room</span>
+                <span class="tag">Modern</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Elegant interior with plantation shutters" />
+            <div class="gallery-card__body">
+              <h3>Plantation Shutters</h3>
+              <p>A more architectural finish that gives the room structure, privacy and timeless style.</p>
+              <div class="tag-row">
+                <span class="tag">Shutters</span>
+                <span class="tag">Premium</span>
+                <span class="tag">Timeless</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Elegant sheer curtains in a styled room" />
+            <div class="gallery-card__body">
+              <h3>Soft Sheer Curtains</h3>
+              <p>Sheers that soften daylight and make a space feel warmer, lighter and more complete.</p>
+              <div class="tag-row">
+                <span class="tag">Curtains</span>
+                <span class="tag">Sheers</span>
+                <span class="tag">Styling</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80" alt="Outdoor entertaining area with blinds" />
+            <div class="gallery-card__body">
+              <h3>Outdoor Entertaining Upgrade</h3>
+              <p>Outdoor blinds that turn an exposed patio into a more usable and comfortable zone.</p>
+              <div class="tag-row">
+                <span class="tag">Outdoor</span>
+                <span class="tag">Alfresco</span>
+                <span class="tag">Lifestyle</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" alt="Bedroom with layered window furnishings" />
+            <div class="gallery-card__body">
+              <h3>Bedroom Privacy & Light Control</h3>
+              <p>Layered styling and strong privacy-driven inspiration for calmer, more finished bedrooms.</p>
+              <div class="tag-row">
+                <span class="tag">Bedroom</span>
+                <span class="tag">Privacy</span>
+                <span class="tag">Premium</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Interior close-up showing clean window furnishing finish" />
+            <div class="gallery-card__body">
+              <h3>Clean Interior Finish</h3>
+              <p>Details matter. This kind of image helps sell the finished feel rather than only the product type.</p>
+              <div class="tag-row">
+                <span class="tag">Finish</span>
+                <span class="tag">Detail</span>
+                <span class="tag">Interior</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Refined kitchen and dining area with shutters" />
+            <div class="gallery-card__body">
+              <h3>Kitchen & Dining Shutters</h3>
+              <p>A practical but elevated look for spaces where durability and appearance both matter.</p>
+              <div class="tag-row">
+                <span class="tag">Shutters</span>
+                <span class="tag">Kitchen</span>
+                <span class="tag">Dining</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Curtains and soft furnishings in elegant room" />
+            <div class="gallery-card__body">
+              <h3>Layered Curtain Styling</h3>
+              <p>Visual inspiration for clients who want the room to feel softer and more intentional.</p>
+              <div class="tag-row">
+                <span class="tag">Curtains</span>
+                <span class="tag">Layered</span>
+                <span class="tag">Warmth</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80" alt="Luxury outdoor blind project concept" />
+            <div class="gallery-card__body">
+              <h3>Premium Outdoor Living</h3>
+              <p>Outdoor inspiration that helps buyers picture a more enclosed, more comfortable entertaining space.</p>
+              <div class="tag-row">
+                <span class="tag">Outdoor</span>
+                <span class="tag">Premium</span>
+                <span class="tag">Comfort</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="intro">
+          <div>
+            <div class="eyebrow">Why this page matters</div>
+            <h2 class="section-title">What the Gallery Is Really Doing</h2>
+          </div>
+          <p class="section-copy">
+            It is not there just to fill a menu link. It is there to make the customer imagine the finished result and gain confidence in your visual standard.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>Visual trust</h3>
+            <p>People trust what they can picture. A strong gallery helps them believe the final result will look right in their own home.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Premium positioning</h3>
+            <p>This page supports the brand story by showing the kind of finish your website is promising.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Sales support</h3>
+            <p>It helps undecided buyers move from vague interest into clearer product intent before they contact you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-copy">
+            <div class="eyebrow" style="color:#9c6a0b;">Seen enough?</div>
+            <h2 class="section-title">Let’s Talk About Your Space</h2>
+            <p class="section-copy">
+              The gallery should not be a dead end. It should drive people toward contact once they can picture the result.
+            </p>
+          </div>
+          <div class="cta-panel">
+            <ul>
+              <li>Free measure and quote</li>
+              <li>Advice across blinds, shutters, curtains and outdoor solutions</li>
+              <li>Perth-based enquiries</li>
+              <li>Direct contact by phone or email</li>
+            </ul>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a class="btn btn--gold" href="contact.html">Go to Contact Page</a>
+              <a class="btn btn--ghost" href="about.html">View About Page</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-card">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h4>The Blindscape</h4>
+            <p>Bespoke blinds, shutters, curtains and outdoor solutions designed for beautiful living.</p>
+          </div>
+          <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="blinds.html">Blinds</a>
+            <a href="shutters.html">Shutters</a>
+            <a href="curtains.html">Curtains</a>
+            <a href="outdoor.html">Outdoor</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+          <div class="footer-column">
+            <h4>About</h4>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <a href="tel:+61415882099">+61 415 882 099</a>
+            <a href="mailto:info@theblindscape.com.au">info@theblindscape.com.au</a>
+            <p>Perth, Western Australia</p>
+          </div>
+          <div class="footer-column">
+            <h4>Next step</h4>
+            <p>The public site shell is now basically complete. Next we clean assets, replace placeholder images and connect the form to Make.com.</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2026 The Blindscape. All rights reserved.</span>
+          <span>Privacy Policy | Terms & Conditions</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (toggle && mobileMenu) {
+      toggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

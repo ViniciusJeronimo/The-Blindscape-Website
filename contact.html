@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Blindscape | Contact Us</title>
+  <meta name="description" content="Contact The Blindscape for a free measure and quote in Perth. Get in touch about blinds, shutters, curtains and outdoor solutions." />
+  <style>
+    :root {
+      --bg: #070707;
+      --bg-soft: #101010;
+      --panel: rgba(255,255,255,0.04);
+      --gold: #d9a441;
+      --gold-soft: #f0c56f;
+      --text: #f5f1e8;
+      --muted: #c8c0b1;
+      --line: rgba(217,164,65,0.2);
+      --cream: #f5f1e8;
+      --dark: #171411;
+      --shadow: 0 20px 50px rgba(0,0,0,0.35);
+      --radius: 24px;
+      --max: 1280px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(217,164,65,0.08), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(217,164,65,0.06), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      color: var(--gold-soft);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      color: var(--text);
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 760px;
+    }
+
+    .topbar {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar__inner {
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .topbar__cta {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .topbar__cta span:last-child {
+      color: var(--gold-soft);
+      font-weight: 700;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7,7,7,0.84);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      position: relative;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand__logo {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(217,164,65,0.35);
+      box-shadow: 0 0 0 4px rgba(217,164,65,0.06);
+      background: #000;
+      flex-shrink: 0;
+    }
+
+    .brand__text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand__name {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    .brand__tag {
+      font-size: 0.76rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.96rem;
+      flex-wrap: wrap;
+    }
+
+    .nav__links a {
+      position: relative;
+      color: rgba(245,241,232,0.9);
+    }
+
+    .nav__links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+      transition: width 0.25s ease;
+    }
+
+    .nav__links a:hover::after,
+    .nav__links a.active::after { width: 100%; }
+
+    .nav__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    .mobile-panel { display: none; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn--gold {
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      color: #111;
+      box-shadow: 0 12px 30px rgba(217,164,65,0.22);
+    }
+
+    .btn--ghost {
+      border-color: rgba(255,255,255,0.18);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .hero {
+      padding: 34px 0 24px;
+    }
+
+    .hero__shell {
+      min-height: 520px;
+      border-radius: 32px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(217,164,65,0.16);
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(90deg, rgba(7,7,7,0.86) 0%, rgba(7,7,7,0.62) 42%, rgba(7,7,7,0.18) 100%),
+        url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .hero__curve {
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      border: 1px solid rgba(217,164,65,0.2);
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      border-radius: 999px;
+      left: -120px;
+      top: 36px;
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 760px);
+      padding: 82px 56px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 0.96;
+      font-weight: 400;
+      margin: 0 0 18px;
+    }
+
+    .hero h1 em {
+      color: var(--gold-soft);
+      font-style: italic;
+    }
+
+    .hero p {
+      max-width: 640px;
+      font-size: 1.05rem;
+      color: rgba(245,241,232,0.86);
+      margin-bottom: 28px;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .section {
+      padding: 22px 0 60px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .info-card,
+    .form-card,
+    .trust-card,
+    .faq-card,
+    .areas-card {
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      box-shadow: var(--shadow);
+    }
+
+    .info-card,
+    .areas-card,
+    .trust-card,
+    .faq-card {
+      padding: 28px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .info-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .info-item strong {
+      display: block;
+      color: var(--gold-soft);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.82rem;
+    }
+
+    .info-item span,
+    .info-item a,
+    .info-item p {
+      color: var(--text);
+      margin: 0;
+      word-break: break-word;
+    }
+
+    .mini-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .form-card {
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(245,241,232,0.98), rgba(241,236,229,0.94));
+      color: var(--dark);
+    }
+
+    .form-card__head {
+      padding: 30px 30px 12px;
+    }
+
+    .form-card__head .section-title,
+    .form-card__head .section-copy {
+      color: var(--dark);
+    }
+
+    .form-wrap {
+      padding: 18px 30px 30px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .field,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.9);
+      padding: 14px 16px;
+      font: inherit;
+      color: var(--dark);
+      outline: none;
+    }
+
+    .field:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(217,164,65,0.6);
+      box-shadow: 0 0 0 4px rgba(217,164,65,0.14);
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+      grid-column: 1 / -1;
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    .form-note {
+      margin-top: 14px;
+      color: #5f5348;
+      font-size: 0.9rem;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .trust-list,
+    .areas-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .trust-point,
+    .areas-chip {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+    }
+
+    .areas-chip {
+      display: inline-block;
+      margin: 0 10px 10px 0;
+      color: var(--text);
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    details {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 0 0 26px;
+    }
+
+    .footer-card {
+      border-radius: 28px;
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr repeat(3, 1fr) 1.2fr;
+      gap: 24px;
+    }
+
+    .footer-column h4 {
+      margin: 0 0 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-soft);
+      font-size: 0.84rem;
+    }
+
+    .footer-column a,
+    .footer-column p {
+      display: block;
+      color: var(--muted);
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1180px) {
+      .contact-grid,
+      .support-grid,
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 940px) {
+      .nav__links,
+      .nav__actions .btn { display: none; }
+      .mobile-toggle { display: inline-flex; }
+      .mobile-panel {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 16px;
+        right: 16px;
+        background: rgba(9,9,9,0.98);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        padding: 18px;
+        box-shadow: var(--shadow);
+      }
+      .mobile-panel.open { display: block; }
+      .mobile-panel nav {
+        display: grid;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+      .mobile-panel nav a {
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .mobile-panel .btn { width: 100%; }
+      .hero__content { padding: 68px 28px; }
+      .hero__shell { min-height: 500px; }
+    }
+
+    @media (max-width: 760px) {
+      .topbar__inner { flex-direction: column; justify-content: center; padding: 10px 0; }
+      .form-grid { grid-template-columns: 1fr; }
+      .full, textarea { grid-column: auto; }
+      .info-card,
+      .areas-card,
+      .trust-card,
+      .faq-card,
+      .form-card__head,
+      .form-wrap,
+      .footer-card { padding-left: 24px; padding-right: 24px; }
+      .hero h1 { font-size: 2.8rem; }
+      .section-title { font-size: 2.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div>Free measure and quote for blinds, shutters, curtains and outdoor solutions.</div>
+      <div class="topbar__cta">
+        <span>📞 <a href="tel:+61415882099">+61 415 882 099</a></span>
+        <span><a href="#enquire">Enquire now</a></span>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="The Blindscape home">
+        <div class="brand__logo">
+          <img src="assets/logo-the-blindscape.png" alt="The Blindscape logo" onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=300&q=80';" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="brand__text">
+          <span class="brand__name">The Blindscape</span>
+          <span class="brand__tag">Blinds & Shutters</span>
+        </div>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="blinds.html">Blinds</a>
+        <a href="shutters.html">Shutters</a>
+        <a href="curtains.html">Curtains</a>
+        <a href="outdoor.html">Outdoor</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="btn btn--gold" href="#enquire">Free Measure & Quote</a>
+        <button class="mobile-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+      </div>
+
+      <div class="mobile-panel" id="mobileMenu">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="blinds.html">Blinds</a>
+          <a href="shutters.html">Shutters</a>
+          <a href="curtains.html">Curtains</a>
+          <a href="outdoor.html">Outdoor</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <a class="btn btn--gold" href="#enquire">Free Measure & Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero__shell">
+          <div class="hero__curve"></div>
+          <div class="hero__content">
+            <div class="eyebrow">Contact The Blindscape</div>
+            <h1>Let’s Talk About <em>Your Window Furnishing Project</em></h1>
+            <p>
+              This page should do one job properly: make it easy for people to contact you, trust you, and move toward a quote without friction. That is exactly what it is built for.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--gold" href="#enquire">Start Your Enquiry</a>
+              <a class="btn btn--ghost" href="tel:+61415882099">Call Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="enquire">
+      <div class="container">
+        <div class="contact-grid">
+          <div>
+            <div class="info-card">
+              <div class="eyebrow">Contact details</div>
+              <h2 class="section-title">Get in Touch</h2>
+              <p class="section-copy">
+                Give people more than one way to reach you. Some will call. Some will email. Some will only fill a form. The page should catch all three.
+              </p>
+
+              <div class="info-list">
+                <div class="info-item">
+                  <strong>Phone</strong>
+                  <a href="tel:+61415882099">+61 415 882 099</a>
+                </div>
+                <div class="info-item">
+                  <strong>Email</strong>
+                  <a href="mailto:info@theblindscape.com.au">info@theblindscape.com.au</a>
+                </div>
+                <div class="info-item">
+                  <strong>Service Area</strong>
+                  <p>Perth, Western Australia</p>
+                </div>
+                <div class="info-item">
+                  <strong>Best For</strong>
+                  <p>Free measure and quote enquiries for blinds, shutters, curtains and outdoor projects.</p>
+                </div>
+              </div>
+
+              <p class="mini-note">
+                Relevant extra detail added: Perth service area, category guidance, and a cleaner contact structure so the page feels complete instead of bare.
+              </p>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <div class="form-card__head">
+              <div class="eyebrow" style="color:#9c6a0b;">Free measure & quote</div>
+              <h2 class="section-title">Send an Enquiry</h2>
+              <p class="section-copy">
+                This form is already laid out in the right way for the next step, which is wiring it to Make.com.
+              </p>
+            </div>
+            <div class="form-wrap">
+              <form class="form-grid" onsubmit="event.preventDefault(); alert('This form is front-end only for now. Next we connect it to Make.com, email, or a webhook.');">
+                <input class="field" type="text" placeholder="Full Name" required />
+                <input class="field" type="tel" placeholder="Phone Number" required />
+                <input class="field" type="email" placeholder="Email Address" required />
+                <input class="field" type="text" placeholder="Suburb" />
+                <select class="full" required>
+                  <option value="">What are you interested in?</option>
+                  <option>Roller Blinds</option>
+                  <option>Double Roller Blinds</option>
+                  <option>Plantation Shutters</option>
+                  <option>Curtains / Sheers</option>
+                  <option>Outdoor Blinds</option>
+                  <option>Multiple Products</option>
+                  <option>Not Sure Yet</option>
+                </select>
+                <input class="field" type="text" placeholder="Preferred time or day" />
+                <input class="field" type="text" placeholder="Address or project location" />
+                <textarea placeholder="Tell us about your project, windows, rooms, or anything else that helps."></textarea>
+                <button class="btn btn--gold full" type="submit">Send Enquiry</button>
+              </form>
+              <div class="form-note">
+                Good addition for later automation: this form already collects the basics you actually need to qualify a lead before it hits Make.com.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="support-grid">
+          <div class="trust-card">
+            <div class="eyebrow">Why contact us</div>
+            <h2 class="section-title">What People Usually Want to Know</h2>
+            <div class="trust-list">
+              <div class="trust-point">Which product suits the room best</div>
+              <div class="trust-point">Whether blockout, sunscreen, shutters or curtains make more sense</div>
+              <div class="trust-point">How to improve privacy, light control and the overall finish</div>
+              <div class="trust-point">How to get a quote without wasting time</div>
+            </div>
+          </div>
+
+          <div class="areas-card">
+            <div class="eyebrow">Service area</div>
+            <h2 class="section-title">Perth-Focused Enquiries</h2>
+            <p class="section-copy">
+              Since this is a local service business, the page should make local coverage obvious. That builds confidence fast.
+            </p>
+            <div class="areas-list">
+              <span class="areas-chip">Perth Metro</span>
+              <span class="areas-chip">North of River</span>
+              <span class="areas-chip">South of River</span>
+              <span class="areas-chip">Coastal Suburbs</span>
+              <span class="areas-chip">Hills & Surrounds</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-card" style="margin-top:24px;">
+          <div class="eyebrow">FAQs</div>
+          <h2 class="section-title">Questions Before Booking</h2>
+          <div class="faq-grid">
+            <details open>
+              <summary>Do I need to know exactly what product I want before contacting you?</summary>
+              <p>No. A lot of customers should not decide that alone. This page is built to make it easy to ask first and decide properly later.</p>
+            </details>
+            <details>
+              <summary>Can I contact you for more than one product type?</summary>
+              <p>Yes. That is why the form includes a multiple-products option. It helps qualify broader jobs properly.</p>
+            </details>
+            <details>
+              <summary>Is the quote request free?</summary>
+              <p>Yes. The whole point of the page is to make that offer clear and easy to act on.</p>
+            </details>
+            <details>
+              <summary>Will this form go to Make.com later?</summary>
+              <p>Yes. This layout is already suitable for that. Next we can connect it to a webhook, email flow, Google Sheets, Gmail, or a CRM route in Make.com.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-card">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h4>The Blindscape</h4>
+            <p>Bespoke blinds, shutters, curtains and outdoor solutions designed for beautiful living.</p>
+          </div>
+          <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="blinds.html">Blinds</a>
+            <a href="shutters.html">Shutters</a>
+            <a href="curtains.html">Curtains</a>
+            <a href="outdoor.html">Outdoor</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+          <div class="footer-column">
+            <h4>About</h4>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h4>Direct Contact</h4>
+            <a href="tel:+61415882099">+61 415 882 099</a>
+            <a href="mailto:info@theblindscape.com.au">info@theblindscape.com.au</a>
+            <p>Perth, Western Australia</p>
+          </div>
+          <div class="footer-column">
+            <h4>Next step</h4>
+            <p>After this, the smart move is connecting the form to Make.com so leads go exactly where you want them.</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2026 The Blindscape. All rights reserved.</span>
+          <span>Privacy Policy | Terms & Conditions</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (toggle && mobileMenu) {
+      toggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

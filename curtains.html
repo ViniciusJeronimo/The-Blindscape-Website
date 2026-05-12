@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Blindscape | Custom Curtains & Sheers Perth</title>
+  <meta name="description" content="Explore custom curtains, sheer curtains and blockout curtains by The Blindscape in Perth. Premium finishes, elegant styling and expert installation for refined interiors." />
+  <style>
+    :root {
+      --bg: #070707;
+      --bg-soft: #101010;
+      --panel: rgba(255,255,255,0.04);
+      --panel-2: rgba(255,255,255,0.06);
+      --gold: #d9a441;
+      --gold-soft: #f0c56f;
+      --text: #f5f1e8;
+      --muted: #c8c0b1;
+      --line: rgba(217,164,65,0.2);
+      --cream: #f5f1e8;
+      --dark: #171411;
+      --shadow: 0 20px 50px rgba(0,0,0,0.35);
+      --radius: 24px;
+      --max: 1280px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(217,164,65,0.08), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(217,164,65,0.06), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      color: var(--gold-soft);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      color: var(--text);
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 700px;
+    }
+
+    .topbar {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar__inner {
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .topbar__cta {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .topbar__cta span:last-child {
+      color: var(--gold-soft);
+      font-weight: 700;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7,7,7,0.84);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      position: relative;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand__logo {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(217,164,65,0.35);
+      box-shadow: 0 0 0 4px rgba(217,164,65,0.06);
+      background: #000;
+      flex-shrink: 0;
+    }
+
+    .brand__text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand__name {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+
+    .brand__tag {
+      font-size: 0.76rem;
+      color: var(--muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.96rem;
+      flex-wrap: wrap;
+    }
+
+    .nav__links a {
+      position: relative;
+      color: rgba(245,241,232,0.9);
+    }
+
+    .nav__links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+      transition: width 0.25s ease;
+    }
+
+    .nav__links a:hover::after,
+    .nav__links a.active::after { width: 100%; }
+
+    .nav__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    .mobile-panel { display: none; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn--gold {
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      color: #111;
+      box-shadow: 0 12px 30px rgba(217,164,65,0.22);
+    }
+
+    .btn--ghost {
+      border-color: rgba(255,255,255,0.18);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .hero {
+      padding: 34px 0 28px;
+    }
+
+    .hero__shell {
+      min-height: 640px;
+      border-radius: 32px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(217,164,65,0.16);
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(90deg, rgba(7,7,7,0.84) 0%, rgba(7,7,7,0.60) 42%, rgba(7,7,7,0.18) 100%),
+        url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .hero__curve {
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      border: 1px solid rgba(217,164,65,0.2);
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      border-radius: 999px;
+      left: -120px;
+      top: 36px;
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 720px);
+      padding: 82px 56px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 5vw, 5.3rem);
+      line-height: 0.96;
+      font-weight: 400;
+      margin: 0 0 18px;
+    }
+
+    .hero h1 em {
+      color: var(--gold-soft);
+      font-style: italic;
+    }
+
+    .hero p {
+      max-width: 620px;
+      font-size: 1.05rem;
+      color: rgba(245,241,232,0.86);
+      margin-bottom: 28px;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .quick-links {
+      padding: 8px 0 38px;
+    }
+
+    .quick-links__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .quick-link {
+      padding: 22px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .quick-link h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .quick-link p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .quick-link a {
+      color: var(--gold-soft);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .section {
+      padding: 24px 0 58px;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      object-fit: cover;
+    }
+
+    .product-card__body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .product-card__body h3 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+    }
+
+    .product-card__body p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(217,164,65,0.08);
+      color: var(--gold-soft);
+      font-size: 0.82rem;
+      border: 1px solid rgba(217,164,65,0.16);
+    }
+
+    .compare {
+      padding: 8px 0 58px;
+    }
+
+    .compare-card {
+      padding: 28px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      box-shadow: var(--shadow);
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .compare-item {
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .compare-item h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    .compare-item ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .why {
+      padding: 8px 0 58px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .why-card {
+      padding: 24px;
+      border-radius: 22px;
+      border: 1px solid rgba(217,164,65,0.12);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+    }
+
+    .why-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .why-card p { margin: 0; color: var(--muted); }
+
+    .faq {
+      padding: 8px 0 58px;
+    }
+
+    .faq-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    details {
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .cta {
+      padding: 0 0 78px;
+    }
+
+    .cta-card {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      overflow: hidden;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(245,241,232,0.98), rgba(241,236,229,0.94));
+      color: var(--dark);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-copy {
+      padding: 40px;
+      background:
+        linear-gradient(90deg, rgba(245,241,232,0.94), rgba(245,241,232,0.80)),
+        url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .cta-copy .section-title,
+    .cta-copy .section-copy { color: var(--dark); }
+
+    .cta-panel {
+      padding: 34px;
+      display: grid;
+      align-content: center;
+      background: rgba(255,255,255,0.42);
+    }
+
+    .cta-panel ul {
+      margin: 0 0 20px;
+      padding-left: 18px;
+      color: #5a4e44;
+    }
+
+    footer {
+      padding: 0 0 26px;
+    }
+
+    .footer-card {
+      border-radius: 28px;
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr repeat(3, 1fr) 1.2fr;
+      gap: 24px;
+    }
+
+    .footer-column h4 {
+      margin: 0 0 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-soft);
+      font-size: 0.84rem;
+    }
+
+    .footer-column a,
+    .footer-column p {
+      display: block;
+      color: var(--muted);
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1180px) {
+      .quick-links__grid,
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-grid,
+      .footer-grid,
+      .compare-grid,
+      .faq-wrap,
+      .cta-card { grid-template-columns: 1fr; }
+      .product-card { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 940px) {
+      .nav__links,
+      .nav__actions .btn { display: none; }
+      .mobile-toggle { display: inline-flex; }
+      .mobile-panel {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 16px;
+        right: 16px;
+        background: rgba(9,9,9,0.98);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        padding: 18px;
+        box-shadow: var(--shadow);
+      }
+      .mobile-panel.open { display: block; }
+      .mobile-panel nav {
+        display: grid;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+      .mobile-panel nav a {
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .mobile-panel .btn { width: 100%; }
+      .hero__content { padding: 68px 28px; }
+      .hero__shell { min-height: 560px; }
+      .intro { display: block; }
+    }
+
+    @media (max-width: 760px) {
+      .topbar__inner { flex-direction: column; justify-content: center; padding: 10px 0; }
+      .quick-links__grid,
+      .why-grid { grid-template-columns: 1fr; }
+      .cta-copy,
+      .cta-panel,
+      .footer-card,
+      .product-card__body,
+      .compare-card { padding: 24px; }
+      .hero h1 { font-size: 2.8rem; }
+      .section-title { font-size: 2.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div>Elegant curtains and sheers for refined Perth interiors.</div>
+      <div class="topbar__cta">
+        <span>📞 08 1234 5678</span>
+        <span><a href="contact.html">Book your free measure & quote</a></span>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="The Blindscape home">
+        <div class="brand__logo">
+          <img src="assets/logo-the-blindscape.png" alt="The Blindscape logo" onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=300&q=80';" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="brand__text">
+          <span class="brand__name">The Blindscape</span>
+          <span class="brand__tag">Blinds & Shutters</span>
+        </div>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="blinds.html">Blinds</a>
+        <a href="shutters.html">Shutters</a>
+        <a class="active" href="curtains.html">Curtains</a>
+        <a href="outdoor.html">Outdoor</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="btn btn--gold" href="contact.html">Free Measure & Quote</a>
+        <button class="mobile-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+      </div>
+
+      <div class="mobile-panel" id="mobileMenu">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="blinds.html">Blinds</a>
+          <a href="shutters.html">Shutters</a>
+          <a href="curtains.html">Curtains</a>
+          <a href="outdoor.html">Outdoor</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <a class="btn btn--gold" href="contact.html">Free Measure & Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero__shell">
+          <div class="hero__curve"></div>
+          <div class="hero__content">
+            <div class="eyebrow">Curtains & sheers collection</div>
+            <h1>Curtains That Add <em>Softness, Warmth & Finish</em></h1>
+            <p>
+              Curtains change the feeling of a room fast. This page is designed to sell that emotional upgrade,
+              while still giving customers practical reasons to enquire.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--gold" href="contact.html">Book Free Measure & Quote</a>
+              <a class="btn btn--ghost" href="#curtain-types">Explore Curtain Types</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-links">
+      <div class="container">
+        <div class="quick-links__grid">
+          <div class="quick-link">
+            <h3>Sheer Curtains</h3>
+            <p>Soft filtered light and a premium designer look.</p>
+            <a href="#sheers">Jump to section →</a>
+          </div>
+          <div class="quick-link">
+            <h3>Blockout Curtains</h3>
+            <p>More privacy, more darkness and a fuller finish.</p>
+            <a href="#blockout">Jump to section →</a>
+          </div>
+          <div class="quick-link">
+            <h3>Layered Curtains</h3>
+            <p>The best of both worlds for style and functionality.</p>
+            <a href="#layered">Jump to section →</a>
+          </div>
+          <div class="quick-link">
+            <h3>Need Help Choosing?</h3>
+            <p>Use the page to qualify them, then move them to contact.</p>
+            <a href="contact.html">Get advice →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="curtain-types">
+      <div class="container">
+        <div class="intro">
+          <div>
+            <div class="eyebrow">Curtain types</div>
+            <h2 class="section-title">Sell the Look, Then Back It Up With Function</h2>
+          </div>
+          <p class="section-copy">
+            Curtains are an emotional product. They are not just about covering glass. They shape mood, softness and perceived quality in the home.
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card" id="sheers">
+            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Elegant room with sheer curtains" />
+            <div class="product-card__body">
+              <h3>Sheer Curtains</h3>
+              <p>
+                Sheers are the easiest way to make a room feel softer, brighter and more expensive. They filter daylight beautifully and create movement in the space.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Soft filtered light</span>
+                <span class="pill">Elegant finish</span>
+                <span class="pill">Premium feel</span>
+              </div>
+              <p>Best for: living rooms, master bedrooms, open-plan spaces and clients who care about the visual finish of the room.</p>
+            </div>
+          </article>
+
+          <article class="product-card" id="blockout">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Refined bedroom with blockout curtains" />
+            <div class="product-card__body">
+              <h3>Blockout Curtains</h3>
+              <p>
+                Blockout curtains bring stronger privacy, better darkness and a more substantial finish. They are practical, but still feel warm and premium when done properly.
+              </p>
+              <div class="pill-row">
+                <span class="pill">More privacy</span>
+                <span class="pill">Better sleep</span>
+                <span class="pill">Fuller look</span>
+              </div>
+              <p>Best for: bedrooms, theatre rooms and any area where privacy and light reduction matter more.</p>
+            </div>
+          </article>
+
+          <article class="product-card" id="layered">
+            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Layered curtains in a modern interior" />
+            <div class="product-card__body">
+              <h3>Layered Curtains</h3>
+              <p>
+                Layering sheers with blockouts is one of the strongest upgrades you can sell. It gives the customer both softness and serious function.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Day + night use</span>
+                <span class="pill">Luxury feel</span>
+                <span class="pill">More flexibility</span>
+              </div>
+              <p>Best for: premium homes, renovation projects and clients who want the room to feel complete.</p>
+            </div>
+          </article>
+
+          <article class="product-card" id="tracks">
+            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80" alt="Luxury interior suggesting track-mounted curtains" />
+            <div class="product-card__body">
+              <h3>Tracks & Finishing Details</h3>
+              <p>
+                Details matter. Curtain track choice, fullness and drop all affect whether the finished product feels average or premium.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Clean finish</span>
+                <span class="pill">Custom look</span>
+                <span class="pill">Design impact</span>
+              </div>
+              <p>Best for: clients who notice detail and want the final room to feel intentionally designed.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="compare">
+      <div class="container">
+        <div class="compare-card">
+          <div class="eyebrow">How to choose</div>
+          <h2 class="section-title">Not Sure Which Curtain Setup Works Best?</h2>
+          <p class="section-copy">
+            This section prevents confusion. A confused customer delays. A clear customer enquires.
+          </p>
+
+          <div class="compare-grid">
+            <div class="compare-item">
+              <h3>Choose Sheers if you want…</h3>
+              <ul>
+                <li>a light, airy and elegant feel</li>
+                <li>soft privacy during the day</li>
+                <li>a more styled interior look</li>
+              </ul>
+            </div>
+            <div class="compare-item">
+              <h3>Choose Blockouts if you want…</h3>
+              <ul>
+                <li>stronger privacy and darkness</li>
+                <li>better bedroom practicality</li>
+                <li>a fuller, heavier visual finish</li>
+              </ul>
+            </div>
+            <div class="compare-item">
+              <h3>Choose Layered Curtains if you want…</h3>
+              <ul>
+                <li>both elegance and function</li>
+                <li>maximum flexibility through the day</li>
+                <li>the most premium overall result</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="container">
+        <div class="intro">
+          <div>
+            <div class="eyebrow">Why choose The Blindscape</div>
+            <h2 class="section-title">Why This Curtains Page Matters</h2>
+          </div>
+          <p class="section-copy">
+            Curtains need a page that feels softer and more design-led than blinds. This one does that without losing sales intent.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <h3>Design-first feel</h3>
+            <p>The layout sells visual transformation, which is exactly how curtains should be sold.</p>
+          </div>
+          <div class="why-card">
+            <h3>Clear choices</h3>
+            <p>Customers can understand sheers, blockouts and layering without reading a wall of text.</p>
+          </div>
+          <div class="why-card">
+            <h3>Premium positioning</h3>
+            <p>The brand feels more sophisticated, which is critical when selling soft furnishings.</p>
+          </div>
+          <div class="why-card">
+            <h3>Automation ready</h3>
+            <p>Later we route curtain enquiries separately through Make.com if needed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <div class="intro">
+          <div>
+            <div class="eyebrow">FAQs</div>
+            <h2 class="section-title">Questions That Help Close the Sale</h2>
+          </div>
+          <p class="section-copy">These can be refined later with your real answers, lead times and installation details.</p>
+        </div>
+
+        <div class="faq-wrap">
+          <details open>
+            <summary>Are sheer curtains enough for privacy?</summary>
+            <p>During the day, often yes. At night, privacy depends on lighting conditions, so some clients prefer layered curtains for better overall control.</p>
+          </details>
+          <details>
+            <summary>What is the benefit of layered curtains?</summary>
+            <p>You get the soft look of sheers during the day and the stronger privacy and darkness of blockouts when needed. It is one of the best premium upgrades.</p>
+          </details>
+          <details>
+            <summary>Do curtains make a room feel warmer?</summary>
+            <p>Visually, definitely. They soften hard lines, add texture and make spaces feel more complete and comfortable.</p>
+          </details>
+          <details>
+            <summary>Can I use curtains with other window furnishings?</summary>
+            <p>Yes. Curtains can work alongside blinds or shutters depending on the look and function the customer wants.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-copy">
+            <div class="eyebrow" style="color:#9c6a0b;">Ready to enquire?</div>
+            <h2 class="section-title">Let’s Create a Softer, More Finished Space</h2>
+            <p class="section-copy">
+              End with momentum. The customer should know exactly where to go next.
+            </p>
+          </div>
+          <div class="cta-panel">
+            <ul>
+              <li>Free in-home measure and quote</li>
+              <li>Advice on the right curtain style for the room</li>
+              <li>Elegant custom finish without making the process complicated</li>
+            </ul>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a class="btn btn--gold" href="contact.html">Book Free Measure & Quote</a>
+              <a class="btn btn--ghost" href="outdoor.html">Next page: Outdoor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-card">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h4>The Blindscape</h4>
+            <p>Bespoke blinds, shutters, curtains and outdoor solutions designed for beautiful living.</p>
+          </div>
+          <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="blinds.html">Blinds</a>
+            <a href="shutters.html">Shutters</a>
+            <a href="curtains.html">Curtains</a>
+            <a href="outdoor.html">Outdoor</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+          <div class="footer-column">
+            <h4>About</h4>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <p>08 1234 5678</p>
+            <p>hello@theblindscape.com.au</p>
+            <p>Perth, Western Australia</p>
+          </div>
+          <div class="footer-column">
+            <h4>Next build</h4>
+            <p>After this, build <strong>outdoor.html</strong> so more of the navigation becomes real.</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2026 The Blindscape. All rights reserved.</span>
+          <span>Privacy Policy | Terms & Conditions</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (toggle && mobileMenu) {
+      toggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
