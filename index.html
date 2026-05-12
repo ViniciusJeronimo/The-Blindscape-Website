@@ -24,26 +24,10 @@
 
     * { box-sizing: border-box; }
     html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-main, section, .container {
-  max-width: 100%;
-}
-
-.split__wrap,
-.gallery-card,
-.gallery-grid,
-.copy-card,
-.page-grid__wrap {
-  min-width: 0;
-}
-
-.gallery-grid img {
-  max-width: 100%;
-}
-    html { scroll-behavior: smooth; }
+      max-width: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -55,30 +39,18 @@ main, section, .container {
       line-height: 1.5;
     }
 
-    /*
-      MULTI-PAGE SITE STRUCTURE TO BUILD NEXT
-      - index.html
-      - blinds.html
-      - shutters.html
-      - curtains.html
-      - outdoor.html
-      - gallery.html
-      - about.html
-      - contact.html
-      - assets/logo-the-blindscape.png
-      - assets/images/... 
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-      This file is page 1: the homepage.
-      The nav is already set up to point to real page filenames.
-    */
-
-    img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
     button { font: inherit; }
 
     .container {
       width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
+      max-width: 100%;
     }
 
     .eyebrow {
@@ -172,6 +144,7 @@ main, section, .container {
       display: flex;
       flex-direction: column;
       line-height: 1.1;
+      min-width: 0;
     }
 
     .brand__name {
@@ -310,6 +283,7 @@ main, section, .container {
       z-index: 2;
       width: min(100%, 640px);
       padding: 88px 56px;
+      max-width: 100%;
     }
 
     .hero h1 {
@@ -338,9 +312,15 @@ main, section, .container {
       flex-wrap: wrap;
     }
 
-    .grid { display: grid; gap: 22px; }
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
 
-    .products { padding: 26px 0 24px; }
+    .products {
+      padding: 26px 0 24px;
+    }
+
     .section-intro {
       display: flex;
       justify-content: space-between;
@@ -349,7 +329,9 @@ main, section, .container {
       margin-bottom: 18px;
     }
 
-    .products__grid { grid-template-columns: repeat(5, 1fr); }
+    .products__grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
 
     .card {
       background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
@@ -357,6 +339,7 @@ main, section, .container {
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
+      min-width: 0;
     }
 
     .product-card {
@@ -379,10 +362,12 @@ main, section, .container {
     .product-card p { margin: 0 0 14px; color: var(--muted); font-size: 0.92rem; }
     .product-card a { color: var(--gold-soft); font-weight: 700; font-size: 0.92rem; }
 
-    .benefits { padding: 10px 0 34px; }
+    .benefits {
+      padding: 10px 0 34px;
+    }
 
     .benefits__grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
       border: 1px solid rgba(217,164,65,0.14);
       border-radius: 24px;
@@ -392,6 +377,7 @@ main, section, .container {
     .benefit {
       padding: 26px;
       border-right: 1px solid rgba(217,164,65,0.12);
+      min-width: 0;
     }
 
     .benefit:last-child { border-right: none; }
@@ -417,7 +403,10 @@ main, section, .container {
 
     .benefit p { margin: 0; color: var(--muted); font-size: 0.94rem; }
 
-    .split { padding: 48px 0; }
+    .split {
+      padding: 48px 0;
+    }
+
     .split__wrap {
       display: grid;
       grid-template-columns: minmax(0, 1.08fr) minmax(0, 1.25fr);
@@ -436,6 +425,7 @@ main, section, .container {
       border-radius: 28px;
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: var(--shadow);
+      min-width: 0;
     }
 
     .copy-card {
@@ -444,6 +434,7 @@ main, section, .container {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      min-width: 0;
     }
 
     .copy-card p { color: var(--muted); }
@@ -451,6 +442,8 @@ main, section, .container {
     .gallery-card {
       padding: 14px;
       background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      min-width: 0;
+      overflow: hidden;
     }
 
     .gallery-grid {
@@ -459,6 +452,7 @@ main, section, .container {
       gap: 14px;
       width: 100%;
       max-width: 100%;
+      min-width: 0;
     }
 
     .gallery-grid img {
@@ -467,6 +461,7 @@ main, section, .container {
       min-height: 240px;
       object-fit: cover;
       border-radius: 18px;
+      max-width: 100%;
     }
 
     .page-grid {
@@ -475,8 +470,9 @@ main, section, .container {
 
     .page-grid__wrap {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
+      min-width: 0;
     }
 
     .page-grid__item {
@@ -484,22 +480,9 @@ main, section, .container {
       background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
     }
 
-    .page-grid__item h3 {
-      margin: 0 0 8px;
-      font-size: 1.1rem;
-    }
-
-    .page-grid__item p {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .page-grid__item a {
-      color: var(--gold-soft);
-      font-weight: 700;
-      font-size: 0.92rem;
-    }
+    .page-grid__item h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .page-grid__item p { margin: 0 0 14px; color: var(--muted); font-size: 0.95rem; }
+    .page-grid__item a { color: var(--gold-soft); font-weight: 700; font-size: 0.92rem; }
 
     .process { padding: 56px 0; }
 
@@ -507,11 +490,12 @@ main, section, .container {
       background: var(--white-panel);
       color: var(--dark-text);
       padding: 28px;
+      min-width: 0;
     }
 
     .process__head {
       display: grid;
-      grid-template-columns: 0.9fr 1.6fr;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr);
       gap: 24px;
       align-items: center;
     }
@@ -521,7 +505,7 @@ main, section, .container {
 
     .process__steps {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 0;
       margin-top: 26px;
       border-top: 1px solid rgba(0,0,0,0.08);
@@ -530,6 +514,7 @@ main, section, .container {
     .step {
       padding: 26px 22px 14px;
       border-right: 1px solid rgba(0,0,0,0.08);
+      min-width: 0;
     }
 
     .step:last-child { border-right: none; }
@@ -556,6 +541,7 @@ main, section, .container {
     .step p { margin: 0; color: #60564c; font-size: 0.94rem; }
 
     .testimonials { padding: 16px 0 48px; }
+
     .testimonials__top {
       display: flex;
       justify-content: space-between;
@@ -566,7 +552,7 @@ main, section, .container {
 
     .testimonials__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr) 0.9fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 0.9fr);
       gap: 18px;
     }
 
@@ -604,6 +590,7 @@ main, section, .container {
       position: relative;
       overflow: hidden;
       background: linear-gradient(135deg, rgba(217,164,65,0.14), rgba(255,255,255,0.04));
+      min-width: 0;
     }
 
     .testimonial-callout::before {
@@ -631,7 +618,7 @@ main, section, .container {
       background: linear-gradient(135deg, rgba(245,241,232,0.98), rgba(241,236,229,0.93));
       color: var(--dark-text);
       display: grid;
-      grid-template-columns: 1.05fr 1fr;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
       overflow: hidden;
     }
 
@@ -650,11 +637,12 @@ main, section, .container {
       display: grid;
       align-content: center;
       background: rgba(255,255,255,0.42);
+      min-width: 0;
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
     }
 
@@ -669,6 +657,7 @@ main, section, .container {
       font: inherit;
       color: var(--dark-text);
       outline: none;
+      min-width: 0;
     }
 
     .field:focus,
@@ -706,7 +695,7 @@ main, section, .container {
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.1fr repeat(3, 1fr) 1.2fr;
+      grid-template-columns: minmax(0, 1.1fr) repeat(3, minmax(0, 1fr)) minmax(0, 1.2fr);
       gap: 24px;
     }
 
@@ -726,8 +715,6 @@ main, section, .container {
       font-size: 0.95rem;
     }
 
-    .footer-brand p { max-width: 260px; }
-
     .footer-bottom {
       margin-top: 20px;
       padding-top: 18px;
@@ -744,6 +731,7 @@ main, section, .container {
       display: flex;
       gap: 10px;
       margin-top: 16px;
+      flex-wrap: wrap;
     }
 
     .socials a {
@@ -759,14 +747,14 @@ main, section, .container {
     .mobile-panel { display: none; }
 
     @media (max-width: 1180px) {
-      .products__grid { grid-template-columns: repeat(3, 1fr); }
-      .benefits__grid { grid-template-columns: repeat(2, 1fr); }
+      .products__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .benefits__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .benefit:nth-child(2) { border-right: none; }
       .benefit:nth-child(-n+2) { border-bottom: 1px solid rgba(217,164,65,0.12); }
-      .page-grid__wrap { grid-template-columns: repeat(2, 1fr); }
-      .testimonials__grid { grid-template-columns: repeat(2, 1fr); }
+      .page-grid__wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .testimonials__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .testimonial-callout { grid-column: 1 / -1; min-height: 180px; }
-      .footer-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .footer-brand { grid-column: span 3; }
     }
 
@@ -780,7 +768,7 @@ main, section, .container {
       .contact-card,
       .process__head,
       .footer-grid { grid-template-columns: 1fr; }
-      .process__steps { grid-template-columns: repeat(2, 1fr); }
+      .process__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .step:nth-child(2) { border-right: none; }
       .step:nth-child(-n+2) { border-bottom: 1px solid rgba(0,0,0,0.08); }
       .footer-brand { grid-column: auto; }
@@ -831,6 +819,7 @@ main, section, .container {
       .hero h1 { font-size: 2.8rem; }
       .section-title { font-size: 2.3rem; }
       .section-intro { display: block; }
+      .gallery-grid img { min-height: 200px; }
     }
   </style>
 </head>
@@ -839,7 +828,7 @@ main, section, .container {
     <div class="container topbar__inner">
       <div>Bespoke blinds & shutters. Beautifully crafted. Expertly installed.</div>
       <div class="topbar__cta">
-        <span>📞 08 1234 5678</span>
+        <span>📞 +61 415 882 099</span>
         <span><a href="contact.html">Book your free measure & quote</a></span>
       </div>
     </div>
@@ -1004,11 +993,10 @@ main, section, .container {
           <div class="eyebrow">Inspired spaces</div>
           <h2 class="section-title">Projects That Sell the Feeling</h2>
           <p class="section-copy">
-            ABC Blinds, The Blinds Gallery and Westral all lean hard on broad product ranges and easy quote access.
-            This design keeps those strong conversion habits but gives The Blindscape a more premium, cleaner visual identity. citeturn990838view0turn990838view1turn990838view2
+            This website is designed to combine strong conversion structure with a more premium and sophisticated visual identity, helping The Blindscape feel more refined than a typical trade website.
           </p>
           <p>
-            The smart move is not just looking “nice.” It is building a site structure that makes every major category a destination page,
+            The smart move is not just looking nice. It is building a site structure that makes every major category a destination page,
             improves search visibility and gives you room to plug Make.com automations in later.
           </p>
           <div style="margin-top: 10px;">
@@ -1081,7 +1069,7 @@ main, section, .container {
               <h2 class="section-title">Simple. Seamless. Stress-Free.</h2>
             </div>
             <p class="section-copy">
-              Clear structure matters. Competitor sites strongly emphasise free measure-and-quote flows and broad category access, so this homepage does the same while keeping a more sophisticated premium tone. citeturn990838view0turn990838view1turn990838view2
+              Clear structure matters. This homepage is designed to guide visitors quickly into the right category while keeping the overall brand feel polished and premium.
             </p>
           </div>
 
@@ -1179,7 +1167,7 @@ main, section, .container {
               <textarea class="textarea" placeholder="Tell us about your project"></textarea>
               <div class="form-actions" style="grid-column:1 / -1;">
                 <button class="btn btn--gold" type="submit">Continue to Contact Page</button>
-                <span class="form-note">We wire the real form logic in step 3.</span>
+                <span class="form-note">We wire the real form logic in the next step.</span>
               </div>
             </form>
           </div>
@@ -1230,8 +1218,8 @@ main, section, .container {
 
           <div class="footer-column">
             <h4>Contact</h4>
-            <p>08 1234 5678</p>
-            <p>hello@theblindscape.com.au</p>
+            <p>+61 415 882 099</p>
+            <p>info@theblindscape.com.au</p>
             <p>Perth, Western Australia</p>
             <p>Mon - Fri 8:30am - 5:00pm</p>
           </div>
@@ -1239,7 +1227,7 @@ main, section, .container {
           <div class="footer-column">
             <h4>Stay Inspired</h4>
             <p>Subscribe for design ideas, product updates and offers.</p>
-            <form onsubmit="event.preventDefault(); alert('Newsletter form is visual for now.');" style="display:flex; gap:10px; margin-top:12px;">
+            <form onsubmit="event.preventDefault(); alert('Newsletter form is visual for now.');" style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
               <input class="field" type="email" placeholder="Your email address" />
               <button class="btn btn--gold" type="submit">→</button>
             </form>
