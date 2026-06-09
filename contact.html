@@ -846,11 +846,9 @@
       const WEBHOOK_URL = 'https://hook.eu2.make.com/gj63i9h4r6hdv7itv1hxyb1k11kf7b7x';
 
       try {
-        await fetch(WEBHOOK_URL, {mode:'no-cors', 
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(data)
-        });
+        const formData = new FormData();
+        Object.entries(data).forEach(([key, value]) => formData.append(key, value || ''));
+        await fetch(WEBHOOK_URL, {method:'POST', mode:'no-cors', body: formData});
         form.innerHTML = `
           <div style="grid-column:1/-1; text-align:center; padding:32px 0;">
             <div style="font-size:2rem; margin-bottom:12px;">✓</div>
@@ -864,3 +862,5 @@
       }
     }
   </script>
+</body>
+</html>
