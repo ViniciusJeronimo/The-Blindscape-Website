@@ -679,11 +679,11 @@
               <div class="eyebrow" style="color:#9c6a0b;">Free measure & quote</div>
               <h2 class="section-title">Send an Enquiry</h2>
               <p class="section-copy">
-                This form is already laid out in the right way for the next step, which is wiring it to Make.com.
+                Fill in your details and we'll get back to you within 24 hours to arrange your free measure and quote.
               </p>
             </div>
             <div class="form-wrap">
-              <form class="form-grid" onsubmit="event.preventDefault(); alert('This form is front-end only for now. Next we connect it to Make.com, email, or a webhook.');">
+              <form class="form-grid" onsubmit="handleFormSubmit(event)">
                 <input class="field" type="text" placeholder="Full Name" required />
                 <input class="field" type="tel" placeholder="Phone Number" required />
                 <input class="field" type="email" placeholder="Email Address" required />
@@ -704,7 +704,7 @@
                 <button class="btn btn--gold full" type="submit">Send Enquiry</button>
               </form>
               <div class="form-note">
-                Good addition for later automation: this form already collects the basics you actually need to qualify a lead before it hits Make.com.
+                
               </div>
             </div>
           </div>
@@ -726,7 +726,7 @@
             <div class="eyebrow">Service area</div>
             <h2 class="section-title">Perth-Focused Enquiries</h2>
             <p class="section-copy">
-              Since this is a local service business, the page should make local coverage obvious. That builds confidence fast.
+              We service all Perth metro suburbs and surrounding areas — from the northern suburbs to the south coast.
             </p>
             <div class="areas-list">
               <span class="areas-chip">Perth Metro</span>
@@ -755,8 +755,8 @@
               <p>Yes. The whole point of the page is to make that offer clear and easy to act on.</p>
             </details>
             <details>
-              <summary>Will this form go to Make.com later?</summary>
-              <p>Yes. This layout is already suitable for that. Next we can connect it to a webhook, email flow, Google Sheets, Gmail, or a CRM route in Make.com.</p>
+              <summary>Where do my enquiry details go?</summary>
+              <p>Your details go directly to us. We'll follow up by phone or email within 24 hours to confirm a time for your free measure and quote.</p>
             </details>
           </div>
         </div>
@@ -793,7 +793,7 @@
           </div>
           <div class="footer-column">
             <h4>Next step</h4>
-            <p>After this, the smart move is connecting the form to Make.com so leads go exactly where you want them.</p>
+            <p></p>
           </div>
         </div>
 
@@ -821,6 +821,49 @@
           toggle.setAttribute('aria-expanded', 'false');
         });
       });
+    }
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const data = {
+        name: form.querySelector('input[placeholder="Full Name"]').value,
+        phone: form.querySelector('input[placeholder="Phone Number"]').value,
+        email: form.querySelector('input[placeholder="Email Address"]').value,
+        suburb: form.querySelector('input[placeholder="Suburb"]').value,
+        interest: form.querySelector('select').value,
+        timing: form.querySelector('input[placeholder="Preferred time or day"]').value,
+        address: form.querySelector('input[placeholder="Address or project location"]').value,
+        message: form.querySelector('textarea').value,
+        submitted: new Date().toLocaleString('en-AU', {timeZone: 'Australia/Perth'})
+      };
+
+      const WEBHOOK_URL = 'YOUR_MAKE_WEBHOOK_URL_HERE';
+
+      try {
+        if (WEBHOOK_URL !== 'YOUR_MAKE_WEBHOOK_URL_HERE') {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+          });
+        }
+        form.innerHTML = `
+          <div style="grid-column:1/-1; text-align:center; padding:32px 0;">
+            <div style="font-size:2rem; margin-bottom:12px;">✓</div>
+            <h3 style="margin:0 0 8px; color:#171411;">Thank you, ${data.name}!</h3>
+            <p style="color:#574d43; margin:0;">We've received your enquiry and will be in touch within 24 hours to arrange your free measure and quote.</p>
+          </div>`;
+      } catch(err) {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        alert('Something went wrong. Please call us on +61 415 882 099 or email theblindscapewa@gmail.com');
+      }
     }
   </script>
 </body>
