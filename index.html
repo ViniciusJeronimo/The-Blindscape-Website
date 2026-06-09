@@ -1285,7 +1285,7 @@
       };
 
       try {
-        await fetch(WEBHOOK_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)});
+        await fetch(WEBHOOK_URL, {method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)});
         form.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:24px 0;"><div style="font-size:2rem;margin-bottom:8px;">✓</div><h3 style="margin:0 0 8px;color:#171411;">Thanks, ${name}!</h3><p style="color:#574d43;margin:0;">We'll be in touch within 24 hours to book your free measure and quote.</p></div>`;
       } catch(err) {
         btn.textContent = 'Get My Free Quote';
@@ -1294,5 +1294,3 @@
       }
     }
   </script>
-</body>
-</html>
