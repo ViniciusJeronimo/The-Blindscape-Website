@@ -698,7 +698,7 @@
                   <option>Multiple Products</option>
                   <option>Not Sure Yet</option>
                 </select>
-                <input class="field" type="text" placeholder="Preferred time or day" />
+                
                 <input class="field" type="text" placeholder="Address or project location" />
                 <textarea placeholder="Tell us about your project, windows, rooms, or anything else that helps."></textarea>
                 <button class="btn btn--gold full" type="submit">Send Enquiry</button>
@@ -837,7 +837,7 @@
         email: form.querySelector('input[placeholder="Email Address"]').value,
         suburb: form.querySelector('input[placeholder="Suburb"]').value,
         interest: form.querySelector('select').value,
-        timing: form.querySelector('input[placeholder="Preferred time or day"]').value,
+        
         address: form.querySelector('input[placeholder="Address or project location"]').value,
         message: form.querySelector('textarea').value,
         submitted: new Date().toLocaleString('en-AU', {timeZone: 'Australia/Perth'})
