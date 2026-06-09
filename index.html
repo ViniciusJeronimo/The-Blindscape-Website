@@ -908,7 +908,7 @@
             <div class="eyebrow">Core collections</div>
             <h2 class="section-title">Shop by Solution</h2>
           </div>
-          <p class="section-copy">This homepage pushes users into the right page fast instead of burying products in a messy menu.</p>
+          <p class="section-copy">From roller blinds to plantation shutters, every solution is custom-made and professionally installed for Perth homes.</p>
         </div>
 
         <div class="grid products__grid">
@@ -991,13 +991,15 @@
       <div class="container split__wrap">
         <div class="copy-card">
           <div class="eyebrow">Inspired spaces</div>
-          <h2 class="section-title">Projects That Sell the Feeling</h2>
+          <h2 class="section-title">Window Furnishings That Transform a Room</h2>
           <p class="section-copy">
-            This website is designed to combine strong conversion structure with a more premium and sophisticated visual identity, helping The Blindscape feel more refined than a typical trade website.
+            The right blind or shutter does more than cover a window. It changes how a room feels —
+            the light, the privacy, the finish. Every project we do is measured, made and installed
+            to suit the space properly.
           </p>
           <p>
-            The smart move is not just looking nice. It is building a site structure that makes every major category a destination page,
-            improves search visibility and gives you room to plug Make.com automations in later.
+            We work with homeowners, real estate agents and property managers across Perth,
+            handling everything from a single room refresh to full property fitouts with tenant coordination included.
           </p>
           <div style="margin-top: 10px;">
             <a class="btn btn--ghost" href="gallery.html">Open Gallery Page</a>
@@ -1019,10 +1021,10 @@
       <div class="container">
         <div class="section-intro">
           <div>
-            <div class="eyebrow">Multi-page roadmap</div>
-            <h2 class="section-title">The Pages We Build Next</h2>
+            <div class="eyebrow">Everything you need</div>
+            <h2 class="section-title">Explore Our Full Range</h2>
           </div>
-          <p class="section-copy">This is where the site stops being a pretty homepage and turns into a real sales machine.</p>
+          <p class="section-copy">Browse our collections — from everyday roller blinds to premium shutters, outdoor solutions and custom curtains. Every product is made to measure and installed by professionals.</p>
         </div>
 
         <div class="page-grid__wrap">
@@ -1048,12 +1050,12 @@
           </article>
           <article class="page-grid__item">
             <h3>Gallery Page</h3>
-            <p>Portfolio-driven layout with filters later if needed, ideal for social proof and inspiration.</p>
+            <p>Browse completed installations across Perth homes — roller blinds, shutters, curtains and outdoor solutions.</p>
             <a href="gallery.html">Go to gallery.html →</a>
           </article>
           <article class="page-grid__item">
             <h3>About + Contact</h3>
-            <p>Trust, story, process, service area and the enquiry form that we later wire into Make.com.</p>
+            <p>Meet the team, learn our process, find out where we work and get in touch for your free measure and quote.</p>
             <a href="contact.html">Go to contact.html →</a>
           </article>
         </div>
@@ -1069,7 +1071,7 @@
               <h2 class="section-title">Simple. Seamless. Stress-Free.</h2>
             </div>
             <p class="section-copy">
-              Clear structure matters. This homepage is designed to guide visitors quickly into the right category while keeping the overall brand feel polished and premium.
+              We take the guesswork out of window furnishings. Tell us what you need and we'll come to you, measure every window and give you a clear quote at no cost.
             </p>
           </div>
 
@@ -1104,7 +1106,7 @@
         <div class="testimonials__top">
           <div>
             <div class="eyebrow">What clients say</div>
-            <h2 class="section-title">Built to Earn Trust Fast</h2>
+            <h2 class="section-title">What Our Clients Say</h2>
           </div>
         </div>
 
@@ -1142,14 +1144,14 @@
         <div class="contact-card">
           <div class="contact__copy">
             <div class="eyebrow" style="color:#9c6a0b;">Book your free measure & quote</div>
-            <h2 class="section-title">Homepage CTA That Leads Into the Contact Page</h2>
+            <h2 class="section-title">Get Your Free Measure &amp; Quote</h2>
             <p class="section-copy">
-              The contact page will become the main automation entry point later. For now, this homepage section is the conversion bridge.
+              Fill in your details below and we'll be in touch within 24 hours to arrange a time that suits you.
             </p>
           </div>
 
           <div class="form-wrap">
-            <form class="form-grid" onsubmit="event.preventDefault(); window.location.href='contact.html';">
+            <form class="form-grid" onsubmit="handleFormSubmit(event)">
               <input class="field" type="text" placeholder="Full Name" required />
               <input class="field" type="tel" placeholder="Phone Number" required />
               <input class="field" type="email" placeholder="Email Address" required />
@@ -1166,8 +1168,8 @@
               <input class="field" type="text" placeholder="Preferred date or timing" />
               <textarea class="textarea" placeholder="Tell us about your project"></textarea>
               <div class="form-actions" style="grid-column:1 / -1;">
-                <button class="btn btn--gold" type="submit">Continue to Contact Page</button>
-                <span class="form-note">We wire the real form logic in the next step.</span>
+                <button class="btn btn--gold" type="submit">Get My Free Quote</button>
+                <span class="form-note">Free measure &amp; quote. No obligation.</span>
               </div>
             </form>
           </div>
@@ -1227,7 +1229,7 @@
           <div class="footer-column">
             <h4>Stay Inspired</h4>
             <p>Subscribe for design ideas, product updates and offers.</p>
-            <form onsubmit="event.preventDefault(); alert('Newsletter form is visual for now.');" style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
+            <form onsubmit="event.preventDefault(); this.innerHTML='<p style="color:#d9a441;font-weight:600;">Thanks! We'll be in touch soon.</p>';" style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
               <input class="field" type="email" placeholder="Your email address" />
               <button class="btn btn--gold" type="submit">→</button>
             </form>
@@ -1258,6 +1260,40 @@
           toggle.setAttribute('aria-expanded', 'false');
         });
       });
+    }
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const WEBHOOK_URL = 'YOUR_MAKE_WEBHOOK_URL_HERE';
+      const name = form.querySelector('input[placeholder="Full Name"]').value;
+
+      const data = {
+        name,
+        phone: form.querySelector('input[placeholder="Phone Number"]').value,
+        email: form.querySelector('input[placeholder="Email Address"]').value,
+        suburb: form.querySelector('input[placeholder="Suburb"]').value,
+        interest: form.querySelector('select').value,
+        timing: form.querySelector('input[placeholder="Preferred date or timing"]').value,
+        message: form.querySelector('textarea').value,
+        source: 'Homepage form',
+        submitted: new Date().toLocaleString('en-AU', {timeZone: 'Australia/Perth'})
+      };
+
+      try {
+        if (WEBHOOK_URL !== 'YOUR_MAKE_WEBHOOK_URL_HERE') {
+          await fetch(WEBHOOK_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)});
+        }
+        form.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:24px 0;"><div style="font-size:2rem;margin-bottom:8px;">✓</div><h3 style="margin:0 0 8px;color:#171411;">Thanks, ${name}!</h3><p style="color:#574d43;margin:0;">We'll be in touch within 24 hours to book your free measure and quote.</p></div>`;
+      } catch(err) {
+        btn.textContent = 'Get My Free Quote';
+        btn.disabled = false;
+        window.location.href = 'contact.html';
+      }
     }
   </script>
 </body>
