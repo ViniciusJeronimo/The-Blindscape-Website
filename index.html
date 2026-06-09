@@ -1165,7 +1165,7 @@
                 <option>Outdoor Blinds</option>
                 <option>Not Sure Yet</option>
               </select>
-              <input class="field" type="text" placeholder="Preferred date or timing" />
+              
               <textarea class="textarea" placeholder="Tell us about your project"></textarea>
               <div class="form-actions" style="grid-column:1 / -1;">
                 <button class="btn btn--gold" type="submit">Get My Free Quote</button>
@@ -1229,7 +1229,7 @@
           <div class="footer-column">
             <h4>Stay Inspired</h4>
             <p>Subscribe for design ideas, product updates and offers.</p>
-            <form onsubmit="event.preventDefault(); this.innerHTML='<p style=&quot;color:#d9a441;font-weight:600;&quot;>Thanks! We\'ll be in touch soon.</p>';" style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
+            <form onsubmit="handleNewsletterSubmit(event)" style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
               <input class="field" type="email" placeholder="Your email address" />
               <button class="btn btn--gold" type="submit">→</button>
             </form>
@@ -1262,6 +1262,11 @@
       });
     }
 
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      e.target.innerHTML = '<p style="color:#d9a441;font-weight:600;">Thanks! We\'ll be in touch soon.</p>';
+    }
+
     async function handleFormSubmit(e) {
       e.preventDefault();
       const form = e.target;
@@ -1278,7 +1283,7 @@
         email: form.querySelector('input[placeholder="Email Address"]')?.value || '',
         suburb: form.querySelector('input[placeholder="Suburb"]')?.value || '',
         interest: form.querySelector('select')?.value || '',
-        timing: form.querySelector('input[placeholder="Preferred date or timing"]')?.value || '',
+        
         message: form.querySelector('textarea')?.value || '',
         source: 'Homepage form',
         submitted: new Date().toLocaleString('en-AU', {timeZone: 'Australia/Perth'})
