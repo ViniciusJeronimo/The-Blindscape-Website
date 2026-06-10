@@ -699,7 +699,7 @@
                   <option>Not Sure Yet</option>
                 </select>
                 
-                <input class="field" type="text" placeholder="Address or project location" />
+
                 <textarea placeholder="Tell us about your project, windows, rooms, or anything else that helps."></textarea>
                 <button class="btn btn--gold full" type="submit">Send Enquiry</button>
               </form>
@@ -832,14 +832,14 @@
       btn.disabled = true;
 
       const data = {
-        name: form.querySelector('input[placeholder="Full Name"]').value,
-        phone: form.querySelector('input[placeholder="Phone Number"]').value,
-        email: form.querySelector('input[placeholder="Email Address"]').value,
-        suburb: form.querySelector('input[placeholder="Suburb"]').value,
-        interest: form.querySelector('select').value,
-        
-        address: form.querySelector('input[placeholder="Address or project location"]').value,
-        message: form.querySelector('textarea').value,
+        name: form.querySelector('input[placeholder="Full Name"]')?.value || '',
+        phone: form.querySelector('input[placeholder="Phone Number"]')?.value || '',
+        email: form.querySelector('input[placeholder="Email Address"]')?.value || '',
+        suburb: form.querySelector('input[placeholder="Suburb"]')?.value || '',
+        interest: form.querySelector('select')?.value || '',
+
+        message: form.querySelector('textarea')?.value || '',
+        source: 'Contact page form',
         submitted: new Date().toLocaleString('en-AU', {timeZone: 'Australia/Perth'})
       };
 
