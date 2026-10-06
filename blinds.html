@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Blindscape | About Us</title>
-  <meta name="description" content="Learn more about The Blindscape, a Perth-based blinds, shutters, curtains and outdoor solutions business focused on premium finishes, tailored advice and a clean customer experience." />
+  <title>The Blindscape | Custom Blinds Perth</title>
+  <meta name="description" content="Custom roller, double roller and venetian blinds in Perth by The Blindscape. Made to measure, professionally installed, with a free measure and quote." />
   <style>
     :root {
       --bg: #070707;
       --bg-soft: #101010;
       --panel: rgba(255,255,255,0.04);
+      --panel-2: rgba(255,255,255,0.06);
       --gold: #d9a441;
       --gold-soft: #f0c56f;
       --text: #f5f1e8;
@@ -63,7 +64,7 @@
     .section-copy {
       color: var(--muted);
       font-size: 1rem;
-      max-width: 760px;
+      max-width: 720px;
     }
 
     .topbar {
@@ -224,19 +225,19 @@
     }
 
     .hero {
-      padding: 34px 0 24px;
+      padding: 34px 0 28px;
     }
 
     .hero__shell {
-      min-height: 560px;
+      min-height: 640px;
       border-radius: 32px;
       overflow: hidden;
       position: relative;
       border: 1px solid rgba(217,164,65,0.16);
       box-shadow: var(--shadow);
       background:
-        linear-gradient(90deg, rgba(7,7,7,0.86) 0%, rgba(7,7,7,0.62) 42%, rgba(7,7,7,0.18) 100%),
-        url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        linear-gradient(90deg, rgba(7,7,7,0.84) 0%, rgba(7,7,7,0.60) 42%, rgba(7,7,7,0.16) 100%),
+        url('assets/images/roller.jpg') center/cover no-repeat;
     }
 
     .hero__curve {
@@ -255,13 +256,13 @@
     .hero__content {
       position: relative;
       z-index: 1;
-      width: min(100%, 760px);
+      width: min(100%, 720px);
       padding: 82px 56px;
     }
 
     .hero h1 {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3rem, 5vw, 5rem);
+      font-size: clamp(3rem, 5vw, 5.3rem);
       line-height: 0.96;
       font-weight: 400;
       margin: 0 0 18px;
@@ -273,7 +274,7 @@
     }
 
     .hero p {
-      max-width: 650px;
+      max-width: 620px;
       font-size: 1.05rem;
       color: rgba(245,241,232,0.86);
       margin-bottom: 28px;
@@ -285,153 +286,218 @@
       flex-wrap: wrap;
     }
 
-    .section {
-      padding: 22px 0 60px;
+    .quick-links {
+      padding: 8px 0 38px;
     }
 
-    .split {
+    .quick-links__grid {
       display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 24px;
-      align-items: stretch;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
 
-    .panel,
-    .story-card,
-    .values-card,
-    .process-card,
-    .promise-card,
-    .why-card,
-    .cta-card {
+    .quick-link {
+      padding: 22px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .quick-link h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .quick-link p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .quick-link a {
+      color: var(--gold-soft);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .section {
+      padding: 24px 0 58px;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      object-fit: cover;
+    }
+
+    .product-card__body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .product-card__body h3 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+    }
+
+    .product-card__body p {
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(217,164,65,0.08);
+      color: var(--gold-soft);
+      font-size: 0.82rem;
+      border: 1px solid rgba(217,164,65,0.16);
+    }
+
+    .compare {
+      padding: 8px 0 58px;
+    }
+
+    .compare-card {
+      padding: 28px;
       border-radius: 28px;
       border: 1px solid rgba(255,255,255,0.08);
       background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
       box-shadow: var(--shadow);
     }
 
-    .story-card,
-    .values-card,
-    .promise-card,
-    .why-card { padding: 30px; }
-
-    .story-card p,
-    .values-card p,
-    .promise-card p,
-    .why-card p { color: var(--muted); }
-
-    .image-panel {
-      min-height: 100%;
-      overflow: hidden;
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-    }
-
-    .image-panel img {
-      width: 100%;
-      height: 100%;
-      min-height: 420px;
-      object-fit: cover;
-    }
-
-    .values-grid,
-    .why-grid {
+    .compare-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 20px;
+      margin-top: 22px;
     }
 
-    .value,
-    .why-item {
-      padding: 22px;
+    .compare-item {
+      padding: 20px;
       border-radius: 20px;
-      background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
     }
 
-    .value h3,
-    .why-item h3 {
+    .compare-item h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    .compare-item ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .why {
+      padding: 8px 0 58px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .why-card {
+      padding: 24px;
+      border-radius: 22px;
+      border: 1px solid rgba(217,164,65,0.12);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+    }
+
+    .why-card h3 {
       margin: 0 0 10px;
       font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
 
-    .value p,
-    .why-item p {
-      margin: 0;
-      color: var(--muted);
+    .why-card p { margin: 0; color: var(--muted); }
+
+    .faq {
+      padding: 8px 0 58px;
     }
 
-    .process-card {
-      padding: 28px;
-      background: linear-gradient(135deg, rgba(245,241,232,0.98), rgba(241,236,229,0.94));
-      color: var(--dark);
-    }
-
-    .process-card .section-title,
-    .process-card .section-copy { color: var(--dark); }
-
-    .process-steps {
+    .faq-wrap {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
 
-    .step {
-      padding: 20px;
+    details {
       border-radius: 18px;
-      background: rgba(0,0,0,0.04);
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-
-    .step-number {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(217,164,65,0.18);
-      color: #6e4a06;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .step h3 {
-      margin: 0 0 8px;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .step p {
-      margin: 0;
-      color: #5a4d41;
-      font-size: 0.94rem;
-    }
-
-    .promise-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .promise-item {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    details p {
+      margin: 12px 0 0;
       color: var(--muted);
+    }
+
+    .cta {
+      padding: 0 0 78px;
     }
 
     .cta-card {
       display: grid;
       grid-template-columns: 1.05fr 1fr;
       overflow: hidden;
+      border-radius: 28px;
       background: linear-gradient(135deg, rgba(245,241,232,0.98), rgba(241,236,229,0.94));
       color: var(--dark);
+      box-shadow: var(--shadow);
     }
 
     .cta-copy {
@@ -504,12 +570,14 @@
     }
 
     @media (max-width: 1180px) {
-      .split,
-      .values-grid,
-      .why-grid,
-      .process-steps,
-      .cta-card,
-      .footer-grid { grid-template-columns: 1fr; }
+      .quick-links__grid,
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-grid,
+      .footer-grid,
+      .compare-grid,
+      .faq-wrap,
+      .cta-card { grid-template-columns: 1fr; }
+      .product-card { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 940px) {
@@ -540,19 +608,19 @@
       }
       .mobile-panel .btn { width: 100%; }
       .hero__content { padding: 68px 28px; }
-      .hero__shell { min-height: 500px; }
+      .hero__shell { min-height: 560px; }
+      .intro { display: block; }
     }
 
     @media (max-width: 760px) {
       .topbar__inner { flex-direction: column; justify-content: center; padding: 10px 0; }
-      .story-card,
-      .values-card,
-      .promise-card,
-      .why-card,
-      .process-card,
+      .quick-links__grid,
+      .why-grid { grid-template-columns: 1fr; }
       .cta-copy,
       .cta-panel,
-      .footer-card { padding-left: 24px; padding-right: 24px; }
+      .footer-card,
+      .product-card__body,
+      .compare-card { padding: 24px; }
       .hero h1 { font-size: 2.8rem; }
       .section-title { font-size: 2.3rem; }
     }
@@ -561,9 +629,9 @@
 <body>
   <div class="topbar">
     <div class="container topbar__inner">
-      <div>Perth-based blinds, shutters, curtains and outdoor solutions with a premium finish.</div>
+      <div>Custom roller, double roller and venetian blinds for Perth homes.</div>
       <div class="topbar__cta">
-        <span>📞 <a href="tel:+61415882099">+61 415 882 099</a></span>
+        <span>📞 +61 415 882 099</span>
         <span><a href="contact.html">Book your free measure & quote</a></span>
       </div>
     </div>
@@ -583,12 +651,12 @@
 
       <nav class="nav__links" aria-label="Primary navigation">
         <a href="index.html">Home</a>
-        <a href="blinds.html">Blinds</a>
+        <a class="active" href="blinds.html">Blinds</a>
         <a href="shutters.html">Shutters</a>
         <a href="curtains.html">Curtains</a>
         <a href="outdoor.html">Outdoor</a>
         <a href="gallery.html">Gallery</a>
-        <a class="active" href="about.html">About</a>
+        <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
 
@@ -619,166 +687,249 @@
         <div class="hero__shell">
           <div class="hero__curve"></div>
           <div class="hero__content">
-            <div class="eyebrow">About The Blindscape</div>
-            <h1>A Brand Built Around <em>Better Finish, Better Guidance & Better Experience</em></h1>
+            <div class="eyebrow">Blinds collection</div>
+            <h1>Custom Blinds for <em>Light Control, Privacy & Clean Lines</em></h1>
             <p>
-              The Blindscape is a Perth-based window furnishings business focused on delivering custom blinds, shutters, curtains and outdoor solutions that actually suit the space — not just the catalogue.
+              Roller, double roller and venetian blinds made to measure for Perth homes, with fabrics and finishes to suit every room.
             </p>
             <div class="hero__actions">
               <a class="btn btn--gold" href="contact.html">Book Free Measure & Quote</a>
-              <a class="btn btn--ghost" href="#story">Read Our Story</a>
+              <a class="btn btn--ghost" href="#blind-types">Explore Blind Options</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="story">
+    <section class="quick-links">
       <div class="container">
-        <div class="split">
-          <div class="story-card">
-            <div class="eyebrow">Our story</div>
-            <h2 class="section-title">More Than Just a Product Supplier</h2>
-            <p>
-              The Blindscape is positioned as a Perth-based business focused on helping clients improve the look, comfort and finish of their spaces through better window furnishing choices.
-            </p>
-            <p>
-              We work with homeowners, real estate agents and property managers across Perth. Every job is measured properly, ordered to spec and installed with care — whether it's one room or an entire property.
-            </p>
-            <p>
-              That matters because most customers do not just want blinds or shutters. They want the room to feel cleaner, softer, more private, more controlled and more complete. That is the real job.
-            </p>
+        <div class="quick-links__grid">
+          <div class="quick-link">
+            <h3>Roller Blinds</h3>
+            <p>Simple, clean and the most popular choice.</p>
+            <a href="#roller">Jump to section →</a>
           </div>
-          <div class="image-panel">
-            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Refined interior representing The Blindscape brand style" />
+          <div class="quick-link">
+            <h3>Double Roller Blinds</h3>
+            <p>Sunscreen by day, blockout by night.</p>
+            <a href="#double-roller">Jump to section →</a>
+          </div>
+          <div class="quick-link">
+            <h3>Venetian Blinds</h3>
+            <p>Precise light control with adjustable slats.</p>
+            <a href="#venetian">Jump to section →</a>
+          </div>
+          <div class="quick-link">
+            <h3>Need Help Choosing?</h3>
+            <p>Tell us about the room and we'll recommend the right blind.</p>
+            <a href="contact.html">Get advice →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="blind-types">
       <div class="container">
-        <div class="values-card">
-          <div class="eyebrow">What we care about</div>
-          <h2 class="section-title">The Values Behind the Brand</h2>
+        <div class="intro">
+          <div>
+            <div class="eyebrow">Blind options</div>
+            <h2 class="section-title">Blinds Made to Measure for Perth Homes</h2>
+          </div>
           <p class="section-copy">
-            This section gives the business a spine. Without it, the site just looks polished. With it, the brand feels intentional.
+            Every blind is measured on site, made to your exact window sizes and installed by us. Here is how the main options compare.
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card" id="roller">
+            <img src="assets/images/roller.jpg" alt="Roller blinds in a bright living room" />
+            <div class="product-card__body">
+              <h3>Roller Blinds</h3>
+              <p>
+                Roller blinds are clean, simple and easy to live with. Choose sunscreen fabrics to cut glare while keeping your view, or blockout fabrics for full privacy and darkness.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Sunscreen or blockout</span>
+                <span class="pill">Minimal look</span>
+                <span class="pill">Great value</span>
+              </div>
+              <p>Best for: living areas, bedrooms, home offices and whole-house fitouts.</p>
+            </div>
+          </article>
+
+          <article class="product-card" id="double-roller">
+            <img src="assets/images/double-roller.jpg" alt="Double roller blinds combining sunscreen and blockout" />
+            <div class="product-card__body">
+              <h3>Double Roller Blinds</h3>
+              <p>
+                Two blinds on one bracket: a sunscreen for daytime glare control and a blockout for night-time privacy. You switch between them depending on the time of day.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Day and night</span>
+                <span class="pill">Flexible privacy</span>
+                <span class="pill">Most popular upgrade</span>
+              </div>
+              <p>Best for: street-facing rooms, bedrooms and living areas that get strong afternoon sun.</p>
+            </div>
+          </article>
+
+          <article class="product-card" id="venetian">
+            <img src="assets/images/AluminiumVenetian.jpg" alt="Aluminium venetian blinds" />
+            <div class="product-card__body">
+              <h3>Venetian Blinds</h3>
+              <p>
+                Venetians let you tilt the slats to direct light exactly where you want it. Aluminium suits kitchens and wet areas; timber-look finishes add warmth to living spaces.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Adjustable light</span>
+                <span class="pill">Aluminium or timber-look</span>
+                <span class="pill">Durable</span>
+              </div>
+              <p>Best for: kitchens, bathrooms, studies and rooms where you want fine control over light.</p>
+            </div>
+          </article>
+
+          <article class="product-card" id="fabrics">
+            <img src="assets/images/living-vertical.jpg" alt="Blind fabric options in a modern interior" />
+            <div class="product-card__body">
+              <h3>Fabrics, Colours & Motorisation</h3>
+              <p>
+                Choose from a wide range of fabrics, colours and textures. Chain, spring or motorised operation is available, and motorised blinds can run on a remote or a schedule.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Wide fabric range</span>
+                <span class="pill">Motorised options</span>
+                <span class="pill">Child-safe controls</span>
+              </div>
+              <p>Best for: anyone who wants the blinds matched to the room's colours, or easier operation on large or hard-to-reach windows.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="compare">
+      <div class="container">
+        <div class="compare-card">
+          <div class="eyebrow">How to choose</div>
+          <h2 class="section-title">Not Sure Which Blind Is Right?</h2>
+          <p class="section-copy">
+            A quick guide to which blind suits which room.
           </p>
 
-          <div class="values-grid">
-            <div class="value">
-              <h3>Tailored advice</h3>
-              <p>We focus on what suits the room, the light, the privacy needs and the style the customer is trying to achieve.</p>
+          <div class="compare-grid">
+            <div class="compare-item">
+              <h3>Choose Roller Blinds if you want…</h3>
+              <ul>
+                <li>a clean, minimal look</li>
+                <li>one fabric that does the job</li>
+                <li>great value across the whole house</li>
+              </ul>
             </div>
-            <div class="value">
-              <h3>Premium finish</h3>
-              <p>The goal is not just to supply a product. It is to leave the space looking more resolved and better designed.</p>
+            <div class="compare-item">
+              <h3>Choose Double Rollers if you want…</h3>
+              <ul>
+                <li>glare control during the day</li>
+                <li>full privacy and darkness at night</li>
+                <li>flexibility in rooms that do both</li>
+              </ul>
             </div>
-            <div class="value">
-              <h3>Simple process</h3>
-              <p>Good service should feel clear and easy, not confusing, dragged out or harder than it needs to be.</p>
+            <div class="compare-item">
+              <h3>Choose Venetians if you want…</h3>
+              <ul>
+                <li>adjustable, directional light</li>
+                <li>a hard-wearing option for wet areas</li>
+                <li>a classic slatted look</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="why">
       <div class="container">
-        <div class="process-card">
-          <div class="eyebrow" style="color:#9c6a0b;">How we work</div>
-          <h2 class="section-title">A Better Experience From First Enquiry to Final Finish</h2>
+        <div class="intro">
+          <div>
+            <div class="eyebrow">Why choose The Blindscape</div>
+            <h2 class="section-title">Why Choose The Blindscape for Blinds</h2>
+          </div>
           <p class="section-copy">
-            A lot of service businesses talk about quality. Fewer show a process that actually makes the experience feel under control. This does that.
+            We measure, supply and install every blind ourselves, so the fit and finish are right the first time.
           </p>
-
-          <div class="process-steps">
-            <div class="step">
-              <div class="step-number">1</div>
-              <h3>Listen</h3>
-              <p>We start with the room, the goals and what matters most to the customer.</p>
-            </div>
-            <div class="step">
-              <div class="step-number">2</div>
-              <h3>Guide</h3>
-              <p>We recommend practical, aesthetic and budget-aware options without unnecessary complexity.</p>
-            </div>
-            <div class="step">
-              <div class="step-number">3</div>
-              <h3>Measure & Quote</h3>
-              <p>We make the next step straightforward with proper measuring and a clear quote path.</p>
-            </div>
-            <div class="step">
-              <div class="step-number">4</div>
-              <h3>Deliver the Finish</h3>
-              <p>The end result should look intentional and feel like an upgrade, not just a transaction.</p>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="split">
-          <div class="promise-card">
-            <div class="eyebrow">What clients can expect</div>
-            <h2 class="section-title">What Makes The Blindscape Different</h2>
-            <p>
-              The difference is not just product range. It is the mix of practical guidance, cleaner design sense and a stronger focus on how the finished result should feel in the home.
-            </p>
-            <div class="promise-list">
-              <div class="promise-item">A more refined and design-aware approach to blinds, shutters, curtains and outdoor products</div>
-              <div class="promise-item">Advice that balances function, privacy, light control and visual outcome</div>
-              <div class="promise-item">A simpler, less clunky path from enquiry to quote</div>
-              <div class="promise-item">A premium brand feel without making the process feel stiff or overcomplicated</div>
-            </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <h3>Measured properly</h3>
+            <p>Every window measured on site, so blinds fit inside or outside the recess exactly as planned.</p>
           </div>
           <div class="why-card">
-            <div class="eyebrow">Why this matters</div>
-            <h2 class="section-title">Why the About Page Isn’t Just Filler</h2>
-            <p>
-              People check this page when they want reassurance. They want to know if the business feels real, if it understands the product, and if it will be easy enough to deal with.
-            </p>
-            <div class="why-grid">
-              <div class="why-item">
-                <h3>Trust</h3>
-                <p>It gives the brand more depth than a standard quote form site.</p>
-              </div>
-              <div class="why-item">
-                <h3>Positioning</h3>
-                <p>It supports the premium black-and-gold look with substance.</p>
-              </div>
-              <div class="why-item">
-                <h3>Conversion</h3>
-                <p>It reduces hesitation for visitors who need more confidence before contacting.</p>
-              </div>
-            </div>
+            <h3>Clear advice</h3>
+            <p>Sunscreen, light-filter or blockout explained in your own rooms, with samples in your own light.</p>
+          </div>
+          <div class="why-card">
+            <h3>Quality fabrics</h3>
+            <p>Fabrics and components chosen for durability in Perth's strong sun.</p>
+          </div>
+          <div class="why-card">
+            <h3>Professional install</h3>
+            <p>Installed level, secure and child-safe, with the area left clean when we're done.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="faq">
+      <div class="container">
+        <div class="intro">
+          <div>
+            <div class="eyebrow">FAQs</div>
+            <h2 class="section-title">Blind FAQs</h2>
+          </div>
+          <p class="section-copy">Common questions about blinds in Perth homes.</p>
+        </div>
+
+        <div class="faq-wrap">
+          <details open>
+            <summary>What is the difference between sunscreen and blockout?</summary>
+            <p>Sunscreen fabrics cut glare and heat while keeping your view out during the day. Blockout fabrics block light completely and give full privacy day and night.</p>
+          </details>
+          <details>
+            <summary>Are double roller blinds worth it?</summary>
+            <p>For rooms you use day and night, usually yes. You get glare control and a view by day, and full privacy at night, from one bracket.</p>
+          </details>
+          <details>
+            <summary>Can blinds be motorised?</summary>
+            <p>Yes. Roller and double roller blinds can be motorised to run on a remote, a wall switch or a timer.</p>
+          </details>
+          <details>
+            <summary>How long do custom blinds take?</summary>
+            <p>Lead times depend on the product and fabric. We'll give you a clear timeframe with your quote.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
       <div class="container">
         <div class="cta-card">
           <div class="cta-copy">
-            <div class="eyebrow" style="color:#9c6a0b;">Ready to talk?</div>
-            <h2 class="section-title">Let’s Find the Right Solution for Your Space</h2>
+            <div class="eyebrow" style="color:#9c6a0b;">Ready to enquire?</div>
+            <h2 class="section-title">Let’s Find the Right Blinds for Your Space</h2>
             <p class="section-copy">
-              The best About page still needs to end with action. Otherwise it is just decoration.
+              Book a free measure and quote and we'll bring fabric samples to your home.
             </p>
           </div>
           <div class="cta-panel">
             <ul>
-              <li>Free measure and quote</li>
-              <li>Perth-based enquiries</li>
-              <li>Advice across blinds, shutters, curtains and outdoor solutions</li>
-              <li>Direct contact by phone or email</li>
+              <li>Free in-home measure and quote</li>
+              <li>Advice based on light, privacy and room use</li>
+              <li>A clean, professional install from start to finish</li>
             </ul>
             <div style="display:flex; gap:12px; flex-wrap:wrap;">
-              <a class="btn btn--gold" href="contact.html">Go to Contact Page</a>
-              <a class="btn btn--ghost" href="gallery.html">Next page: Gallery</a>
+              <a class="btn btn--gold" href="contact.html">Book Free Measure & Quote</a>
+              <a class="btn btn--ghost" href="shutters.html">Next page: Shutters</a>
             </div>
           </div>
         </div>
@@ -809,8 +960,8 @@
           </div>
           <div class="footer-column">
             <h4>Contact</h4>
-            <a href="tel:+61415882099">+61 415 882 099</a>
-            <a href="mailto:info@theblindscape.com.au">info@theblindscape.com.au</a>
+            <p>+61 415 882 099</p>
+            <p>theblindscapewa@gmail.com</p>
             <p>Perth, Western Australia</p>
           </div>
           <div class="footer-column">
