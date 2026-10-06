@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Email Signature</title>
+<style>
+  body { margin: 0; padding: 32px 16px; background: #f4f1ea; font-family: Arial, Helvetica, sans-serif; color: #222; }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  .card { background: #fff; border-radius: 10px; padding: 28px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+  h1 { font-size: 18px; margin: 0 0 6px; }
+  p.help { font-size: 14px; line-height: 1.5; color: #555; margin: 0 0 20px; }
+  button { margin-top: 20px; background: #111; color: #E5BE68; border: 0; border-radius: 6px; padding: 10px 18px; font-size: 14px; cursor: pointer; }
+  #status { margin-left: 10px; font-size: 13px; color: #2e7d32; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>The Blindscape email signature</h1>
+    <p class="help">Click <b>Copy signature</b>, then in Gmail go to Settings → See all settings → General → Signature → Create new, paste, and save at the bottom of the page.</p>
+
+    <!-- SIGNATURE START -->
+    <div id="signature">
+    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;">
+      <tr>
+        <td style="padding:0 16px 0 0;vertical-align:middle;">
+          <a href="https://theblindscapewebsite.netlify.app/" style="text-decoration:none;">
+            <img src="https://theblindscapewebsite.netlify.app/assets/email/signature-logo.png" width="96" height="96" alt="The Blindscape" style="display:block;width:96px;height:96px;border:0;">
+          </a>
+        </td>
+        <td style="padding:0 0 0 16px;vertical-align:middle;border-left:2px solid #E5BE68;">
+          <div style="font-size:16px;font-weight:bold;color:#111111;line-height:20px;">Vinicius Silva</div>
+          <div style="font-size:13px;color:#9c6a0b;line-height:18px;letter-spacing:0.5px;">Director &nbsp;|&nbsp; The Blindscape</div>
+          <div style="font-size:11px;color:#777777;line-height:16px;letter-spacing:1.5px;text-transform:uppercase;padding-bottom:8px;">Blinds &amp; Shutters &middot; Perth</div>
+          <div style="font-size:13px;line-height:19px;color:#333333;">
+            <a href="tel:+61415882099" style="color:#333333;text-decoration:none;">+61 415 882 099</a><br>
+            <a href="mailto:theblindscapewa@gmail.com" style="color:#333333;text-decoration:none;">theblindscapewa@gmail.com</a><br>
+            <a href="https://theblindscapewebsite.netlify.app/" style="color:#9c6a0b;text-decoration:none;font-weight:bold;">Book a free measure &amp; quote</a>
+          </div>
+        </td>
+      </tr>
+    </table>
+    </div>
+    <!-- SIGNATURE END -->
+
+    <button id="copy">Copy signature</button><span id="status"></span>
+  </div>
+</div>
+<script>
+document.getElementById('copy').addEventListener('click', async () => {
+  const el = document.getElementById('signature');
+  const status = document.getElementById('status');
+  try {
+    await navigator.clipboard.write([new ClipboardItem({
+      'text/html': new Blob([el.innerHTML], { type: 'text/html' }),
+      'text/plain': new Blob([el.innerText], { type: 'text/plain' })
+    })]);
+    status.textContent = 'Copied. Paste it into Gmail.';
+  } catch (e) {
+    const r = document.createRange(); r.selectNode(el);
+    const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    document.execCommand('copy'); s.removeAllRanges();
+    status.textContent = 'Copied. Paste it into Gmail.';
+  }
+});
+</script>
+</body>
+</html>
