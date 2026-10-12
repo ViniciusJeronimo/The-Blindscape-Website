@@ -1160,8 +1160,8 @@
               <input class="field" type="tel" placeholder="Phone Number" required />
               <input class="field" type="email" placeholder="Email Address" required />
               <input class="field" type="text" placeholder="Suburb" />
-              <select>
-                <option>I’m interested in...</option>
+              <select name="interest">
+                <option value="">I’m interested in...</option>
                 <option>Roller Blinds</option>
                 <option>Double Roller Blinds</option>
                 <option>Plantation Shutters</option>
@@ -1169,7 +1169,18 @@
                 <option>Outdoor Blinds</option>
                 <option>Not Sure Yet</option>
               </select>
-              
+              <select name="heard">
+                <option value="">How did you hear about us?</option>
+                <option>Google search</option>
+                <option>Google Maps</option>
+                <option>Facebook</option>
+                <option>Instagram</option>
+                <option>Friend or family</option>
+                <option>I've used you before</option>
+                <option>Flyer in my letterbox</option>
+                <option>Saw a sign or van</option>
+                <option>Other</option>
+              </select>
               <textarea class="textarea" placeholder="Tell us about your project"></textarea>
               <div class="form-actions" style="grid-column:1 / -1;">
                 <button class="btn btn--gold" type="submit">Get My Free Quote</button>
@@ -1286,10 +1297,11 @@
         phone: form.querySelector('input[placeholder="Phone Number"]')?.value || '',
         email: form.querySelector('input[placeholder="Email Address"]')?.value || '',
         suburb: form.querySelector('input[placeholder="Suburb"]')?.value || '',
-        interest: form.querySelector('select')?.value || '',
-        
+        interest: form.querySelector('select[name="interest"]')?.value || '',
+        heard: form.querySelector('select[name="heard"]')?.value || '',
         message: form.querySelector('textarea')?.value || '',
         source: 'Homepage form',
+        ...(window.tbsAttribution ? window.tbsAttribution() : {}),
         submitted: new Date().toLocaleString('en-AU', {timeZone: 'Australia/Perth'})
       };
 
@@ -1306,5 +1318,6 @@
     }
   </script>
 <script src="chatbot.js"></script>
+<script src="attribution.js"></script>
 </body>
 </html>

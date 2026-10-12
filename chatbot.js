@@ -227,6 +227,7 @@ Keep responses concise, warm and helpful. Never make up specific prices — say 
           interest: 'Chat enquiry',
           message: messages.filter(m => m.role === 'user').map(m => m.content).join(' | '),
           source: 'Website chatbot',
+          ...(window.tbsAttribution ? window.tbsAttribution() : {}),
           submitted: new Date().toLocaleString('en-AU', { timeZone: 'Australia/Perth' })
         });
       }
